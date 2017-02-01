@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, TextInput, View, Navigator } from 'react-native';
+import { AppRegistry, Navigator } from 'react-native';
 
 import AllPackages from './react-assets/components/all_packages';
+import Home from './react-assets/components/home';
 
 class Shiparoo extends Component {
   constructor(props) {
@@ -9,68 +10,28 @@ class Shiparoo extends Component {
     this.state = {text: ''};
   }
 
+  _navigate(){
+    this.props.navigator.push({
+      name: 'All Packages', // Matches route.name
+    });
+  }
+
+  renderScene(route, navigator) {
+   if(route.name === 'Home') {
+     return <Home navigator={navigator} />;
+   } else if(route.name === 'All Packages') {
+     return <AllPackages navigator={navigator} />;
+   }
+  }
+
   render() {
     return (
       <Navigator
-          initialRoute={{ title: 'Home', index: 0 }}
-          renderScene={(route, navigator) => {
-            return <AllPackages
-              title={`Scene ${route.index + 1}`}
-              onForward={() => {
-                const nextIndex = route.index + 1;
-                navigator.push({ index: nextIndex });
-              }}
-
-              onBack={() => {
-                if (route.index > 0) navigator.pop();
-              }}
-            />;
-          }}
+        initialRoute={{ name: 'Home' }}
+        renderScene={ this.renderScene }
       />
     );
   }
 }
 
 AppRegistry.registerComponent('Shiparoo', () => Shiparoo);
-
-// <View style={{
-//     flexDirection: 'column',
-//     justifyContent: 'center',
-//     alignItems: 'center'
-//   }}>
-//   <Text style={{
-//       marginBottom: 20,
-//       fontSize: 30
-//     }}>
-//     Welcome to Shiparoo!
-//   </Text>
-//   <View style={{
-//       width: 200,
-//       height: 200
-//     }}>
-//     <TextInput
-//       style={{height: 40}}
-//       placeholder="Enter Shipment Info"
-//       onChangeText={(text) => this.setState({text})}
-//       />
-//     <Text style={{padding: 10, fontSize: 42}}>
-//       {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-//     </Text>
-//   </View>
-//   <Navigator
-//     initialRoute={{ title: 'Home', index: 0 }}
-//     renderScene={(route, navigator) => {
-//       return <AllPackages
-//         title={`Scene ${route.index + 1}`}
-//         onForward={() => {
-//           const nextIndex = route.index + 1;
-//           navigator.push({ index: nextIndex });
-//         }}
-//
-//         onBack={() => {
-//           if (route.index > 0) navigator.pop();
-//         }}
-//         />
-//     }}
-//   />
-// </View>
