@@ -19,7 +19,7 @@ class Shiparoo extends Component {
   renderScene(route, navigator) {
    if(route.name === 'Home') {
      return <Home navigator={navigator} />;
-   } else if(route.name === 'All Packages') {
+   } else if (route.name === 'All Packages') {
      return <AllPackages navigator={navigator} />;
    }
   }
