@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { Text, TextInput, View, TouchableHighlight } from 'react-native';
+import { Text,
+  TextInput,
+  View,
+  TouchableHighlight,
+  Image
+} from 'react-native';
 
 import AllPackages from './all_packages';
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {tracking_number: ''};
   }
 
   _navigate(){
@@ -29,9 +34,12 @@ class Home extends Component {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
+
+        <Image source={require("../img/logo.png")}/>
+
         <Text style={{
-            marginBottom: 20,
-            fontSize: 30
+            fontSize: 30,
+            margin: 20
           }}>
           Welcome to Shiparoo!
         </Text>
@@ -42,10 +50,10 @@ class Home extends Component {
           <TextInput
             style={{height: 40}}
             placeholder="Enter Shipment Info"
-            onChangeText={(text) => this.setState({text})}
+            onChangeText={(tracking_number) => this.setState({tracking_number})}
             />
           <Text style={{padding: 10, fontSize: 42}}>
-            {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+            {this.state.tracking_number.split(' ').map((word) => word && '🍕').join(' ')}
           </Text>
         </View>
         <TouchableHighlight style={{
