@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Modules/RCTI18nManager.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Modules/RCTI18nManager.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Modules/RCTI18nUtil.h
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Modules/RCTI18nManager.m \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Modules/RCTI18nManager.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Modules/RCTI18nUtil.h

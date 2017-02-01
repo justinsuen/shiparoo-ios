@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/ShiparooTests/ShiparooTests.m \
+  /Users/Daniel/Documents/shiparoo-ios/ios/ShiparooTests/ShiparooTests.m \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Modules/module.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIRemote.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCUIKeyboardKeys.h \
@@ -18,6 +18,7 @@ dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestObservationCenter.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestObserver.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestLog.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestExpectation.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestRun.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestCaseRun.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestCase+AsynchronousTesting.h \
@@ -28,13 +29,13 @@ dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestErrors.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestDefines.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTest.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h

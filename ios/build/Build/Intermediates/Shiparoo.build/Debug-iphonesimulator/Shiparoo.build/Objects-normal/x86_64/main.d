@@ -1,3 +1,2 @@
-dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/Shiparoo/main.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/Shiparoo/AppDelegate.h
+dependencies: /Users/Daniel/Documents/shiparoo-ios/ios/Shiparoo/main.m \
+  /Users/Daniel/Documents/shiparoo-ios/ios/Shiparoo/AppDelegate.h

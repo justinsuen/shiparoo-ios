@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, TextInput, View } from 'react-native';
+import { AppRegistry, Text, TextInput, View, Image } from 'react-native';
 
 class Shiparoo extends Component {
   constructor(props) {
@@ -15,6 +15,8 @@ class Shiparoo extends Component {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
+        <Image source={require('./img/logo.png')}/>
+
         <Text style={{
             marginBottom: 20,
             fontSize: 30

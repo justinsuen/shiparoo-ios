@@ -1,14 +1,14 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTPerformanceLogger.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTRootView.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTBridgeModule.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTFrameUpdate.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTInvalidating.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTLog.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Profiler/RCTProfile.h
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTPerformanceLogger.m \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/React/Profiler/RCTProfile.h

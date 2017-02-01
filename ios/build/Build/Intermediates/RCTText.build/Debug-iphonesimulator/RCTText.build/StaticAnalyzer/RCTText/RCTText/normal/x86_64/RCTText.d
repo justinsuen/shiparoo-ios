@@ -1,21 +1,21 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/Libraries/Text/RCTText.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/Libraries/Text/RCTText.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/Libraries/Text/RCTShadowText.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/Libraries/Text/RCTText.m \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/Libraries/Text/RCTText.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/Libraries/Text/RCTShadowText.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h

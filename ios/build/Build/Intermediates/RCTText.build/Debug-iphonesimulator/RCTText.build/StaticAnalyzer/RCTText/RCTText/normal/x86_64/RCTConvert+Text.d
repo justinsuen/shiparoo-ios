@@ -1,14 +1,14 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/Libraries/Text/RCTConvert+Text.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/Libraries/Text/RCTConvert+Text.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/Libraries/Text/RCTConvert+Text.m \
+  /Users/Daniel/Documents/shiparoo-ios/node_modules/react-native/Libraries/Text/RCTConvert+Text.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/Daniel/Documents/shiparoo-ios/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h
