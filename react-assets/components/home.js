@@ -22,6 +22,8 @@ class Home extends Component {
       phone_number: '',
       realtime_updates: false
     };
+
+    this.onButtonPress = this.onButtonPress.bind(this);
   }
 
   _navigate(){
@@ -37,7 +39,28 @@ class Home extends Component {
   }
 
   onButtonPress() {
-    Alert.alert('Button has been pressed!');
+    return fetch('http://localhost:3000/packages', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        package: {
+          tracking_number: this.state.tracking_number,
+          carrier: this.state.carrier,
+          phone_number: this.state.phone_number,
+          realtime_updates: this.state.realtime_updates
+        }
+      })
+    }).then((response) => response.json())
+      .then((data) => {
+        return data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }
 
   render() {
@@ -47,10 +70,13 @@ class Home extends Component {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 50
         }}>
 
-        <Image source={require("../img/logo.png")}/>
+        <Image source={require("../img/logo.png")}
+          style={{
+            height: 150,
+            resizeMode: 'contain'
+          }}/>
 
         {/*Title*/}
         <Text style={{
@@ -113,7 +139,7 @@ class Home extends Component {
                 'DHL Express',
                 'Mondail Relay']}
                 defaultValue={'Carrier'}
-                onSelect={(carrier) => this.setState({ carrier: carrier })}/>
+                onSelect={(idx, val) => this.setState({ carrier: val })}/>
           </View>
 
           <View
