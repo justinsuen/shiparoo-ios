@@ -5,12 +5,11 @@ import { Text,
   TouchableHighlight,
   Image,
   Alert,
-  ListView
 } from 'react-native';
 
 import ModalDropdown from 'react-native-modal-dropdown';
 import CheckBox from 'react-native-checkbox';
-import Button from 'react-native-button';
+import Button from 'apsl-react-native-button';
 
 import AllPackages from './all_packages';
 
@@ -23,6 +22,7 @@ class Home extends Component {
       carrier: '',
       phoneNumber: '',
       realtimeUpdates: false,
+      processing: false
     };
 
     this.onButtonPress = this.onButtonPress.bind(this);
@@ -44,6 +44,22 @@ class Home extends Component {
     }
   }
 
+  buttonText() {
+    if (this.state.processing) {
+      return "Processing Request";
+    } else {
+      return this.trackButtonText();
+    }
+  }
+
+  trackButtonText() {
+    if (this.state.phoneNumber === "") {
+      return "Find My Package";
+    } else {
+      return "Track My Package";
+    }
+  }
+
   startTracking() {
     const url = `https://api.goshippo.com/v1/tracks/${this.state.carrier}/${this.state.trackingNumber}`;
 
@@ -59,10 +75,12 @@ class Home extends Component {
           this.handleValidTracking();
         } else {
           Alert.alert('Invalid tracking number or carrier.');
+          this.setState({ processing: false });
         }
       })
       .catch(() => {
         Alert.alert('Invalid tracking number or carrier.');
+        this.setState({ processing: false });
       });
   }
 
@@ -71,6 +89,7 @@ class Home extends Component {
       this.createPackage();
     } else {
       Alert.alert('Invalid phone number.');
+      this.setState({ processing: false });
     }
   }
 
@@ -102,132 +121,162 @@ class Home extends Component {
     })
     .catch(() => {
       Alert.alert('Error in creating package. Check your parameters!');
+      this.setState({ processing: false });
     });
   }
 
   onButtonPress() {
+    this.setState({ processing: true });
     this.startTracking();
+  }
+
+  disableButton() {
+    if (this.state.processing) {
+			return true;
+		} else if (this.state.carrier === "") {
+			return true;
+		} else if (this.state.trackingNumber === "") {
+			return true;
+		} else if (this.state.phoneNumber === "") {
+			return false;
+		} else {
+			return !this.validPhoneNumber(this.state.phoneNumber);
+		}
   }
 
   render() {
     return (
-      <View style={{
+      <Image source={require("../img/splash.jpg")}
+        style={{
           flex: 1,
-          flexDirection: 'column',
+          width: undefined,
+          height: undefined,
+          backgroundColor: 'transparent',
           justifyContent: 'center',
-          alignItems: 'center',
+          alignItems: 'center'
         }}>
-
-        <Image source={require("../img/logo.png")}
+        <View
           style={{
-            height: 150,
-            resizeMode: 'contain'
-          }}/>
-
-        {/*Title*/}
-        <Text style={{
-            fontSize: 30,
-            margin: 15,
-            borderRadius: 5,
-            padding: 10,
+            alignItems: 'flex-start'
           }}>
-          Shiparoo
-        </Text>
-
-        <View style={{
-            width: 310,
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: 20,
-            padding: 30,
-            borderRadius: 5,
-            borderWidth: 1
-          }}>
-
-          {/*Tracking Number and Carrier*/}
-          <View
+          <Image source={require('../img/logo_white.png')}
             style={{
-              flexDirection: 'row',
-              justifyContent: 'center',
+              height: 50,
+              width: 50,
+              resizeMode: 'contain',
               marginBottom: 20,
+          }}/>
+          {/*Title*/}
+          <Text style={{
+              fontSize: 25,
+              marginBottom: 20,
+              alignItems: 'flex-end',
+              color: 'white'
             }}>
-            <TextInput
-              style={{
-                height: 40,
-                width: 200,
-                borderWidth: 1,
-                padding: 10,
-              }}
-              placeholder="Tracking Number"
-              onChangeText={(trackingNumber) => this.setState({trackingNumber})}/>
+            Welcome to Shiparoo.
+          </Text>
+          {/*Motto*/}
+          <Text style={{
+              fontSize: 18,
+              color: 'white',
+              marginBottom: 20
+            }}>
+            Never lose track of a package again.
+          </Text>
 
-            <ModalDropdown
-              style={{
-                height: 40,
-                width: 75,
-                borderWidth: 1,
-                borderLeftWidth: 0,
-                padding: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              dropdownStyle={{
-                width: 100
-              }}
-              adjestFrame={{left: 100}}
-              options={
-                ['UPS',
-                'USPS',
-                'FedEX',
-                'Canada Post',
-                'Lasership',
-                'DHL Express',
-                'Mondail Relay']}
-                defaultValue={'Carrier'}
-                onSelect={(idx, val) => this.setState({ carrier: val })}/>
-          </View>
-
-          <View
-            style={{
+          <View style={{
+              width: 310,
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              width: 275
+              marginBottom: 20,
+              padding: 30,
+              borderRadius: 5,
+              borderWidth: 1,
+              backgroundColor: 'white'
             }}>
-            <TextInput
+
+            {/*Tracking Number and Carrier*/}
+            <View
               style={{
-                height: 40,
-                borderWidth: 1,
-                padding: 10,
+                flexDirection: 'row',
+                justifyContent: 'center',
                 marginBottom: 20,
-              }}
-              placeholder="Phone Number (Optional)"
-              onChangeText={(phoneNumber) => this.setState({ phoneNumber: phoneNumber })}/>
+              }}>
+              <TextInput
+                style={{
+                  height: 40,
+                  width: 200,
+                  borderWidth: 1,
+                  padding: 10,
+                }}
+                placeholder="Tracking Number"
+                onChangeText={(trackingNumber) => this.setState({trackingNumber})}/>
 
-            <CheckBox
-              label='Receive real-time updates?'
-              checked={ this.state.realtimeUpdates }
-              onChange={(checked) => this.setState({ realtimeUpdates: !this.state.realtimeUpdates })}/>
-          </View>
+              <ModalDropdown
+                style={{
+                  height: 40,
+                  width: 75,
+                  borderWidth: 1,
+                  borderLeftWidth: 0,
+                  padding: 10,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                dropdownStyle={{
+                  width: 100
+                }}
+                adjestFrame={{left: 100}}
+                options={
+                  ['UPS',
+                  'USPS',
+                  'FedEX',
+                  'Canada Post',
+                  'Lasership',
+                  'DHL Express',
+                  'Mondail Relay']}
+                  defaultValue={'Carrier'}
+                  onSelect={(idx, val) => this.setState({ carrier: val })}/>
+              </View>
 
+              <View
+                style={{
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: 275,
+                  marginBottom: 20
+                }}>
+                <TextInput
+                  style={{
+                    height: 40,
+                    borderWidth: 1,
+                    padding: 10,
+                    marginBottom: 20,
+                  }}
+                  placeholder="Phone Number (Optional)"
+                  onChangeText={(phoneNumber) => this.setState({ phoneNumber: phoneNumber })}/>
+
+                <CheckBox
+                  label='Receive real-time updates?'
+                  checked={ this.state.realtimeUpdates }
+                  onChange={(checked) => this.setState({ realtimeUpdates: !this.state.realtimeUpdates })}/>
+              </View>
+
+              <Button
+                onPress={this.onButtonPress}
+                style={{
+                  backgroundColor: '#5ed1b8',
+                }}
+                textStyle={{
+                  color: 'white'
+                }}
+                isDisabled={this.disableButton()}>
+                {this.buttonText()}
+              </Button>
+            </View>
         </View>
 
-        <Button
-          containerStyle={{
-            padding: 10,
-            height: 40,
-            width: 310,
-            borderRadius: 5,
-            backgroundColor: "#e8482e"
-          }}
-          style={{
-            color: 'white'
-          }}
-          onPress={this.onButtonPress}
-          color="#841584">
-          Send Pin
-        </Button>
 
         <TouchableHighlight style={{
             height: 50
@@ -235,7 +284,7 @@ class Home extends Component {
           onPress={ () => this._navigate() }>
           <Text>All Packages</Text>
         </TouchableHighlight>
-      </View>
+      </Image>
     );
   }
 }
