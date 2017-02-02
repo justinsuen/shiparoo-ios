@@ -4,7 +4,8 @@ import { Text,
   View,
   TouchableHighlight,
   Image,
-  Alert
+  Alert,
+  ListView
 } from 'react-native';
 
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -16,14 +17,19 @@ import AllPackages from './all_packages';
 class Home extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      tracking_number: '',
+      trackingNumber: '',
       carrier: '',
-      phone_number: '',
-      realtime_updates: false
+      phoneNumber: '',
+      realtimeUpdates: false,
     };
 
     this.onButtonPress = this.onButtonPress.bind(this);
+    this.startTracking = this.startTracking.bind(this);
+    this.handleValidTracking = this.handleValidTracking.bind(this);
+    this.validPhoneNumber = this.validPhoneNumber.bind(this);
+    this.createPackage = this.createPackage.bind(this);
   }
 
   _navigate(){
@@ -38,7 +44,44 @@ class Home extends Component {
     }
   }
 
-  onButtonPress() {
+  startTracking() {
+    const url = `https://api.goshippo.com/v1/tracks/${this.state.carrier}/${this.state.trackingNumber}`;
+
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => response.json())
+      .then((data) => {
+        if (data.tracking_status !== null) {
+          this.handleValidTracking();
+        } else {
+          Alert.alert('Invalid tracking number or carrier.');
+        }
+      })
+      .catch(() => {
+        Alert.alert('Invalid tracking number or carrier.');
+      });
+  }
+
+  handleValidTracking() {
+    if (this.validPhoneNumber(this.state.phoneNumber)) {
+      this.createPackage();
+    } else {
+      Alert.alert('Invalid phone number.');
+    }
+  }
+
+  validPhoneNumber(phoneNumber) {
+    if (phoneNumber.length !== 10) {
+      return false;
+    }
+    return (phoneNumber.match(/\d{10}/) !== null);
+  }
+
+  createPackage() {
     return fetch('http://localhost:3000/packages', {
       method: 'POST',
       headers: {
@@ -47,20 +90,23 @@ class Home extends Component {
       },
       body: JSON.stringify({
         package: {
-          tracking_number: this.state.tracking_number,
+          tracking_number: this.state.trackingNumber,
           carrier: this.state.carrier,
-          phone_number: this.state.phone_number,
-          realtime_updates: this.state.realtime_updates
+          phone_number: this.state.phoneNumber,
+          realtime_updates: this.state.realtimeUpdates
         }
       })
     }).then((response) => response.json())
-      .then((data) => {
-        return data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((data) => {
+      console.log(data);
+    })
+    .catch(() => {
+      Alert.alert('Error in creating package. Check your parameters!');
+    });
+  }
 
+  onButtonPress() {
+    this.startTracking();
   }
 
   render() {
@@ -114,7 +160,7 @@ class Home extends Component {
                 padding: 10,
               }}
               placeholder="Tracking Number"
-              onChangeText={(tracking_number) => this.setState({tracking_number})}/>
+              onChangeText={(trackingNumber) => this.setState({trackingNumber})}/>
 
             <ModalDropdown
               style={{
@@ -157,13 +203,14 @@ class Home extends Component {
                 marginBottom: 20,
               }}
               placeholder="Phone Number (Optional)"
-              onChangeText={(phone_number) => this.setState({ phone_number: phone_number })}/>
+              onChangeText={(phoneNumber) => this.setState({ phoneNumber: phoneNumber })}/>
 
             <CheckBox
               label='Receive real-time updates?'
-              checked={ this.state.realtime_updates }
-              onChange={(checked) => this.setState({ realtime_updates: !this.state.realtime_updates })}/>
+              checked={ this.state.realtimeUpdates }
+              onChange={(checked) => this.setState({ realtimeUpdates: !this.state.realtimeUpdates })}/>
           </View>
+
         </View>
 
         <Button
