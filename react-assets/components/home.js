@@ -5,13 +5,24 @@ import { Text,
   TouchableHighlight,
   Image,
   Alert,
+  PickerIOS
 } from 'react-native';
 
-import ModalDropdown from 'react-native-modal-dropdown';
 import CheckBox from 'react-native-checkbox';
 import Button from 'apsl-react-native-button';
+import ModalPicker from 'react-native-modal-picker';
 
 import AllPackages from './all_packages';
+
+const carriers = [
+  { key: 'ups', label: 'UPS'},
+  { key: 'usps', label: 'USPS'},
+  { key: 'fedex', label: 'FedEX'},
+  { key: 'canada_post', label: 'Canada Post'},
+  { key: 'lasership', label: 'Lasership'},
+  { key: 'dhl_express', label: 'DHL Express'},
+  { key: 'mondial_relay', label: 'Mondial Relay'},
+];
 
 class Home extends Component {
   constructor(props) {
@@ -22,7 +33,8 @@ class Home extends Component {
       carrier: '',
       phoneNumber: '',
       realtimeUpdates: false,
-      processing: false
+      processing: false,
+      carrierShow: ''
     };
 
     this.onButtonPress = this.onButtonPress.bind(this);
@@ -157,7 +169,7 @@ class Home extends Component {
         }}>
         <View
           style={{
-            alignItems: 'flex-start'
+            alignItems: 'flex-start',
           }}>
           <Image source={require('../img/logo_white.png')}
             style={{
@@ -179,96 +191,122 @@ class Home extends Component {
           <Text style={{
               fontSize: 18,
               color: 'white',
-              marginBottom: 20
+              marginBottom: 40
             }}>
             Never lose track of a package again.
           </Text>
 
-          <View style={{
-              width: 310,
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
+          {/*Carrier*/}
+          <View
+            style={{
               marginBottom: 20,
-              padding: 30,
-              borderRadius: 5,
-              borderWidth: 1,
-              backgroundColor: 'white'
+            }}>
+            <ModalPicker
+              data={carriers}
+              style={{
+                backgroundColor: '#5ed1b8',
+                borderRadius: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onChange={(option) => this.setState({carrier: option.key, carrierShow: option.label})}>
+
+              <TextInput
+                style={{
+                  width: 125,
+                  height: 30,
+                  fontSize: 11,
+                  color: 'white',
+                  paddingLeft: 10
+                }}
+                editable={false}
+                placeholder="SELECT CARRIER"
+                placeholderTextColor="white"
+                value={this.state.carrierShow} />
+            </ModalPicker>
+          </View>
+
+          <View style={{
+              flexDirection: 'column',
+              marginBottom: 20,
             }}>
 
-            {/*Tracking Number and Carrier*/}
+            {/*Tracking Number*/}
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'center',
                 marginBottom: 20,
+                width: 300
               }}>
+              <View style={{
+                  borderBottomWidth: 1,
+                  borderColor: 'white',}}>
+                <Text style={{
+                    fontSize: 11,
+                    color: 'white'
+                  }}>
+                  TRACKING NUMBER
+                </Text>
+                <TextInput
+                  style={{
+                    height: 40,
+                    color: 'white',
+                  }}
+                  autoFocus={true}
+                  tintColor={'white'}
+                  keyboardType={'numeric'}
+                  onChangeText={(trackingNumber) => this.setState({trackingNumber})}/>
+              </View>
+
+            </View>
+
+
+            {/*Phone Number*/}
+            <View
+              style={{
+                flexDirection: 'column',
+                marginBottom: 20
+              }}>
+              <View style={{
+                  borderBottomWidth: 1,
+                  borderColor: 'white',
+                  marginBottom: 20 }}>
+                <Text style={{
+                    fontSize: 11,
+                    color: 'white'
+                  }}>
+                  PHONE NUMBER (OPTIONAL)
+                </Text>
               <TextInput
                 style={{
                   height: 40,
                   width: 200,
-                  borderWidth: 1,
-                  padding: 10,
+                  color: 'white',
                 }}
-                placeholder="Tracking Number"
-                onChangeText={(trackingNumber) => this.setState({trackingNumber})}/>
-
-              <ModalDropdown
-                style={{
-                  height: 40,
-                  width: 75,
-                  borderWidth: 1,
-                  borderLeftWidth: 0,
-                  padding: 10,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                dropdownStyle={{
-                  width: 100
-                }}
-                adjestFrame={{left: 100}}
-                options={
-                  ['UPS',
-                  'USPS',
-                  'FedEX',
-                  'Canada Post',
-                  'Lasership',
-                  'DHL Express',
-                  'Mondail Relay']}
-                  defaultValue={'Carrier'}
-                  onSelect={(idx, val) => this.setState({ carrier: val })}/>
+                tintColor={'white'}
+                keyboardType={'phone-pad'}
+                onChangeText={(phoneNumber) => this.setState({ phoneNumber: phoneNumber })}/>
               </View>
 
-              <View
-                style={{
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  width: 275,
-                  marginBottom: 20
-                }}>
-                <TextInput
-                  style={{
-                    height: 40,
-                    borderWidth: 1,
-                    padding: 10,
-                    marginBottom: 20,
-                  }}
-                  placeholder="Phone Number (Optional)"
-                  onChangeText={(phoneNumber) => this.setState({ phoneNumber: phoneNumber })}/>
-
-                <CheckBox
-                  label='Receive real-time updates?'
-                  checked={ this.state.realtimeUpdates }
-                  onChange={(checked) => this.setState({ realtimeUpdates: !this.state.realtimeUpdates })}/>
-              </View>
+              <CheckBox style={{
+                  marginTop: 20,
+                }}
+                labelStyle={{ fontSize: 12, color: 'white' }}
+                checkboxStyle={{ height: 15, width: 15, backgroundColor: 'white', borderRadius: 3 }}
+                underlayColor={'transparent'}
+                label='Receive real-time updates?'
+                checked={ this.state.realtimeUpdates }
+                onChange={(checked) => this.setState({ realtimeUpdates: !this.state.realtimeUpdates })}/>
+            </View>
 
               <Button
                 onPress={this.onButtonPress}
                 style={{
+                  height: 35,
+                  borderWidth: 0,
                   backgroundColor: '#5ed1b8',
                 }}
                 textStyle={{
+                  fontSize: 15,
                   color: 'white'
                 }}
                 isDisabled={this.disableButton()}>
