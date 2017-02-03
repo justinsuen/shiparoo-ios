@@ -13,6 +13,7 @@ import Button from 'apsl-react-native-button';
 import ModalPicker from 'react-native-modal-picker';
 
 import AllPackages from './all_packages';
+import VerifyPIN from './verify_pin';
 
 const carriers = [
   { key: 'ups', label: 'UPS'},
@@ -50,9 +51,19 @@ class Home extends Component {
     });
   }
 
+  _navigateVerify(pin) {
+    this.props.navigator.push({
+      name: 'Verify PIN',
+      packagePin: pin
+    });
+  }
+
   renderScene(route, navigator) {
     if(route.name === 'All Packages') {
       return <AllPackages navigator={navigator} />;
+    }
+    if(route.name === 'Verify PIN') {
+      return <VerifyPIN navigator={navigator} />;
     }
   }
 
@@ -66,15 +77,14 @@ class Home extends Component {
 
   trackButtonText() {
     if (this.state.phoneNumber === "") {
-      return "Find My Package";
+      return "Find Package";
     } else {
-      return "Track My Package";
+      return "Receive Updates";
     }
   }
 
   startTracking() {
     const url = `https://api.goshippo.com/v1/tracks/${this.state.carrier}/${this.state.trackingNumber}`;
-
     return fetch(url, {
       method: 'GET',
       headers: {
@@ -83,7 +93,7 @@ class Home extends Component {
       },
     }).then((response) => response.json())
       .then((data) => {
-        if (data.tracking_status !== null) {
+        if (data.tracking_status) {
           this.handleValidTracking();
         } else {
           Alert.alert('Invalid tracking number or carrier.');
@@ -97,11 +107,17 @@ class Home extends Component {
   }
 
   handleValidTracking() {
-    if (this.validPhoneNumber(this.state.phoneNumber)) {
-      this.createPackage();
+    if (this.state.phoneNumber !== "") {
+      if (this.validPhoneNumber(this.state.phoneNumber)) {
+        this.setState({ realtimeUpdates: true });
+        this.createPackage();
+      } else {
+        Alert.alert('Invalid phone number.');
+        this.setState({ processing: false });
+      }
     } else {
-      Alert.alert('Invalid phone number.');
       this.setState({ processing: false });
+      console.log("render show");
     }
   }
 
@@ -113,7 +129,7 @@ class Home extends Component {
   }
 
   createPackage() {
-    return fetch('http://localhost:3000/packages', {
+    return fetch('http://localhost:3000/api/packages', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -129,7 +145,13 @@ class Home extends Component {
       })
     }).then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      if (data.package.verified === true) {
+        this.setState({ processing: false });
+        console.log("render show");
+      } else {
+        this.setState({ processing: false });
+        this._navigateVerify(data.package.pin);
+      }
     })
     .catch(() => {
       Alert.alert('Error in creating package. Check your parameters!');
@@ -158,12 +180,12 @@ class Home extends Component {
 
   render() {
     return (
-      <Image source={require("../img/splash.jpg")}
+      <View
         style={{
           flex: 1,
           width: undefined,
           height: undefined,
-          backgroundColor: 'transparent',
+          backgroundColor: '#5d5f63',
           justifyContent: 'center',
           alignItems: 'center'
         }}>
@@ -204,7 +226,7 @@ class Home extends Component {
             <ModalPicker
               data={carriers}
               style={{
-                backgroundColor: '#5ed1b8',
+                backgroundColor: '#ededef',
                 borderRadius: 5,
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -216,12 +238,12 @@ class Home extends Component {
                   width: 125,
                   height: 30,
                   fontSize: 11,
-                  color: 'white',
+                  color: 'black',
                   paddingLeft: 10
                 }}
                 editable={false}
                 placeholder="SELECT CARRIER"
-                placeholderTextColor="white"
+                placeholderTextColor="black"
                 value={this.state.carrierShow} />
             </ModalPicker>
           </View>
@@ -286,16 +308,6 @@ class Home extends Component {
                 keyboardType={'phone-pad'}
                 onChangeText={(phoneNumber) => this.setState({ phoneNumber: phoneNumber })}/>
               </View>
-
-              <CheckBox style={{
-                  marginTop: 20,
-                }}
-                labelStyle={{ fontSize: 12, color: 'white' }}
-                checkboxStyle={{ height: 15, width: 15, backgroundColor: 'white', borderRadius: 3 }}
-                underlayColor={'transparent'}
-                label='Receive real-time updates?'
-                checked={ this.state.realtimeUpdates }
-                onChange={(checked) => this.setState({ realtimeUpdates: !this.state.realtimeUpdates })}/>
             </View>
 
               <Button
@@ -303,11 +315,11 @@ class Home extends Component {
                 style={{
                   height: 35,
                   borderWidth: 0,
-                  backgroundColor: '#5ed1b8',
+                  backgroundColor: '#ededef',
                 }}
                 textStyle={{
                   fontSize: 15,
-                  color: 'white'
+                  color: 'black'
                 }}
                 isDisabled={this.disableButton()}>
                 {this.buttonText()}
@@ -316,13 +328,13 @@ class Home extends Component {
         </View>
 
 
-        <TouchableHighlight style={{
+        {/*<TouchableHighlight style={{
             height: 50
           }}
           onPress={ () => this._navigate() }>
           <Text>All Packages</Text>
-        </TouchableHighlight>
-      </Image>
+        </TouchableHighlight>*/}
+      </View>
     );
   }
 }
