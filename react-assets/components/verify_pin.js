@@ -55,7 +55,9 @@ class VerifyPIN extends Component {
       },
       body: JSON.stringify({
         package: {
-          pin: this.state.pinToVerify
+          pin: this.state.pinToVerify,
+          tracking_number: this.state.package.tracking_number,
+          carrier: this.state.package.carrier
         }
       })
     }).then((data) => {
