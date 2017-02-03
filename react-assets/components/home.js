@@ -51,10 +51,10 @@ class Home extends Component {
     });
   }
 
-  _navigateVerify(pin) {
+  _navigateVerify(pack) {
     this.props.navigator.push({
       name: 'Verify PIN',
-      packagePin: pin
+      package: pack
     });
   }
 
@@ -150,7 +150,7 @@ class Home extends Component {
         console.log("render show");
       } else {
         this.setState({ processing: false });
-        this._navigateVerify(data.package.pin);
+        this._navigateVerify(data.package);
       }
     })
     .catch(() => {

@@ -13,8 +13,9 @@ class VerifyPIN extends Component {
     super(props);
 
     this.state = {
-      packagePin: this.props.navigator.state.routeStack[1].packagePin,
-      pinToVerify: ''
+      package: this.props.navigator.state.routeStack[1].package,
+      pinToVerify: '',
+      processing: false
     };
 
     this._handleBackPress = this._handleBackPress.bind(this);
@@ -27,22 +28,40 @@ class VerifyPIN extends Component {
   }
 
   onButtonPress() {
-    if (this.state.packagePin === this.state.pinToVerify) {
+    this.setState({ processing: true });
+
+    if (this.state.package.pin === this.state.pinToVerify) {
       this.verifyPackage();
-      console.log("render show");
     } else {
+      this.setState({ processing: false });
       Alert.alert('SIKE. THATS THE WRONG NUMBA.');
     }
   }
 
   disableButton() {
-    if (this.state.pinToVerify === '') {
+    if (this.state.processing) {
+      return true;
+    } else if (this.state.pinToVerify === '') {
       return true;
     } else return false;
   }
 
   verifyPackage() {
-    console.log("verifying");
+    return fetch(`http://localhost:3000/api/packages/${this.state.package.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        package: {
+          pin: this.state.pinToVerify
+        }
+      })
+    }).then((data) => {
+      this.setState({ processing: false });
+      console.log("render show");
+    });
   }
 
   render() {
