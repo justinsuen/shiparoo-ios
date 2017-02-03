@@ -1,8 +1,8 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Views/RCTDatePicker.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Views/RCTDatePicker.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTUtils.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTAssert.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Views/UIView+React.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Views/RCTComponent.h
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Views/RCTDatePicker.m \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Views/RCTDatePicker.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Views/UIView+React.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Views/RCTComponent.h

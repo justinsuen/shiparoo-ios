@@ -1,2 +1,6 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.c
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.c \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/ReactCommon/yoga/yoga/YGNodeList.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/ReactCommon/yoga/yoga/YGMacros.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/ReactCommon/yoga/yoga/YGEnums.h

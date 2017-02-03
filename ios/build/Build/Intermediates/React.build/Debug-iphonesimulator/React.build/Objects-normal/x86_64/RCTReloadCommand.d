@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTReloadCommand.m \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTReloadCommand.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTDefines.h \
-  /Users/justinsuen/Documents/GitHub/shiparoo/ios/Shiparoo/node_modules/react-native/React/Base/RCTKeyCommands.h
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTReloadCommand.m \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTReloadCommand.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/calvinyau/shiparoo-ios/node_modules/react-native/React/Base/RCTKeyCommands.h

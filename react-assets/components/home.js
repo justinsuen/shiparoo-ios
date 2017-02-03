@@ -13,6 +13,7 @@ import Button from 'apsl-react-native-button';
 import ModalPicker from 'react-native-modal-picker';
 
 import AllPackages from './all_packages';
+import SinglePackage from './single_package';
 
 const carriers = [
   { key: 'ups', label: 'UPS'},
@@ -53,6 +54,8 @@ class Home extends Component {
   renderScene(route, navigator) {
     if(route.name === 'All Packages') {
       return <AllPackages navigator={navigator} />;
+    } else if (route.name === 'Single Package') {
+      return <SinglePackge navigator={navigator} />;
     }
   }
 

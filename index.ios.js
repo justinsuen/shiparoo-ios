@@ -3,6 +3,7 @@ import { AppRegistry, Navigator } from 'react-native';
 
 import AllPackages from './react-assets/components/all_packages';
 import Home from './react-assets/components/home';
+import SinglePackage from './react-assets/components/single_package';
 
 class Shiparoo extends Component {
   constructor(props) {
@@ -21,13 +22,15 @@ class Shiparoo extends Component {
      return <Home navigator={navigator} />;
    } else if (route.name === 'All Packages') {
      return <AllPackages navigator={navigator} />;
+   } else if (route.name === 'Single Package') {
+     return <SinglePackage navigator={navigator} />;
    }
   }
 
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'Home' }}
+        initialRoute={{ name: 'Single Package' }}
         renderScene={ this.renderScene }
       />
     );
