@@ -147,7 +147,7 @@ class Home extends Component {
     .then((data) => {
       if (data.package.verified === true) {
         this.setState({ processing: false });
-        console.log("render show");
+        Alert.alert('render show');
       } else {
         this.setState({ processing: false });
         this._navigateVerify(data.package);
@@ -180,12 +180,12 @@ class Home extends Component {
 
   render() {
     return (
-      <View
+      <Image source={require('../img/splash.jpg')}
         style={{
           flex: 1,
           width: undefined,
           height: undefined,
-          backgroundColor: '#5d5f63',
+          backgroundColor: 'transparent',
           justifyContent: 'center',
           alignItems: 'center'
         }}>
@@ -226,8 +226,10 @@ class Home extends Component {
             <ModalPicker
               data={carriers}
               style={{
-                backgroundColor: '#ededef',
+                backgroundColor: 'transparent',
                 borderRadius: 5,
+                borderColor: 'white',
+                borderWidth: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
@@ -238,12 +240,12 @@ class Home extends Component {
                   width: 125,
                   height: 30,
                   fontSize: 11,
-                  color: 'black',
+                  color: 'white',
                   paddingLeft: 10
                 }}
                 editable={false}
                 placeholder="SELECT CARRIER"
-                placeholderTextColor="black"
+                placeholderTextColor="white"
                 value={this.state.carrierShow} />
             </ModalPicker>
           </View>
@@ -314,12 +316,13 @@ class Home extends Component {
                 onPress={this.onButtonPress}
                 style={{
                   height: 35,
-                  borderWidth: 0,
-                  backgroundColor: '#ededef',
+                  borderWidth: 1,
+                  borderColor: 'white',
+                  backgroundColor: 'transparent',
                 }}
                 textStyle={{
                   fontSize: 15,
-                  color: 'black'
+                  color: 'white'
                 }}
                 isDisabled={this.disableButton()}>
                 {this.buttonText()}
@@ -334,7 +337,7 @@ class Home extends Component {
           onPress={ () => this._navigate() }>
           <Text>All Packages</Text>
         </TouchableHighlight>*/}
-      </View>
+      </Image>
     );
   }
 }

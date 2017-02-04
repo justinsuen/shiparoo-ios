@@ -5,6 +5,7 @@ import {
   NavigatorIOS,
   TouchableHighlight,
   TextInput,
+  Image,
   Alert } from 'react-native';
 import Button from 'apsl-react-native-button';
 
@@ -62,55 +63,91 @@ class VerifyPIN extends Component {
       })
     }).then((data) => {
       this.setState({ processing: false });
-      console.log("render show");
+      Alert.alert('RENDER SHOW');
     });
   }
 
   render() {
     return(
-      <View style={{
+      <Image source={require('../img/splash.jpg')}
+        style={{
           flex: 1,
+          width: undefined,
+          height: undefined,
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          backgroundColor: 'transparent',
         }}>
 
-        <View>
-          <Text>1. Find your PIN in your messages</Text>
-          <Text>2. Enter your PIN below</Text>
-          <TextInput
+
+          <View
             style={{
-              height: 40,
-              color: 'black',
-              borderWidth: 1
-            }}
-            autoFocus={true}
-            tintColor={'black'}
-            keyboardType={'numeric'}
-            onChangeText={(pinToVerify) => this.setState({ pinToVerify })}/>
+              alignItems: 'center',
+            }}>
+
+            <Text style={{
+                fontSize: 18,
+                color: 'white',
+                marginBottom: 20
+              }}>
+              Find your PIN in your messages
+            </Text>
+
+            <View style={{ borderBottomWidth: 1, borderColor: 'white', marginBottom: 50, width: 75 }}>
+              <Text style={{ fontSize: 11, color: 'white', textAlign: 'center' }}>
+                PIN
+              </Text>
+              <TextInput
+                style={{
+                  textAlign: 'center',
+                  height: 40,
+                  color: 'white',
+                }}
+                autoFocus={true}
+                tintColor={'white'}
+                keyboardType={'numeric'}
+                onChangeText={(pinToVerify) => this.setState({ pinToVerify })}/>
+            </View>
+
+          </View>
+          <View style={{ width: 100, flexDirection: 'row', justifyContent: 'center' }}>
+            <Button style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 75,
+                height: 35,
+                borderColor: 'white',
+                backgroundColor: 'transparent',
+                marginRight: 20
+              }}
+              textStyle={{
+                fontSize: 15,
+                color: 'white'
+              }}
+              onPress={this._handleBackPress}>
+              Back
+            </Button>
             <Button
               onPress={this.onButtonPress}
               style={{
                 height: 35,
+                width: 75,
                 borderWidth: 1,
-                backgroundColor: '#ededef',
+                borderColor: 'white',
+                backgroundColor: 'transparent',
+                alignItems: 'center'
               }}
               textStyle={{
                 fontSize: 15,
-                color: 'black'
+                color: 'white'
               }}
               isDisabled={this.disableButton()}>
-              VERIFY YO PIN BOIIIIII
+              Submit
             </Button>
-        </View>
+          </View>
 
 
-        <TouchableHighlight style={{
-            padding: 15
-          }}
-          onPress={this._handleBackPress}>
-          <Text>Back</Text>
-        </TouchableHighlight>
-      </View>
+      </Image>
     );
   }
 }
