@@ -33,7 +33,7 @@ class Shiparoo extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ name: 'Home' }}
+        initialRoute={{ name: 'Show Package' }}
         renderScene={ this.renderScene }
       />
     );

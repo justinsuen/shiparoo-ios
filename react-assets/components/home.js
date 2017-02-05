@@ -116,7 +116,8 @@ class Home extends Component {
           this.setState({ processing: false });
         }
       })
-      .catch(() => {
+      .catch((data) => {
+        console.log(data);
         Alert.alert('Invalid tracking number or carrier.');
         this.setState({ processing: false });
       });
