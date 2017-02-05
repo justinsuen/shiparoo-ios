@@ -39,11 +39,11 @@ class ShowPackage extends Component {
         this.setState({details: data});
         let visited_locations = [];
         for (let a = 0; a < data.tracking_history.length; a++) {
-          let loc_str = this.getAddress(data.tracking_history[a] + ": ")
+          let reversed = data.tracking_history.reverse();
           visited_locations.push(
-            new Date(data.tracking_history[a].status_date).toString() + ": " +
-              this.getAddress(data.tracking_history[a].location) + " | " +
-              data.tracking_history[a].status
+            new Date(reversed[a].status_date).toString() + ": " +
+              this.getAddress(reversed[a].location) + "\n" +
+              reversed[a].status
           );
           console.log(visited_locations);
         }
@@ -74,38 +74,43 @@ class ShowPackage extends Component {
       fromAddress = this.getAddress(det.address_from);
       toAddress = this.getAddress(det.address_to);
       status = det.tracking_status.status;
-      status_details = det.tracking_status.status_details;
       status_date_with_location = new Date(det.tracking_status.status_date).toString() + ": " +
         this.getAddress(det.tracking_status.location);
+      status_details = det.tracking_status.status_details;
     }
 
     return (
       <View style={styles.view}>
         <TouchableHighlight style={{
-            padding: 15
+            marginTop: 15
           }}
           onPress={this._handleBackPress}>
-          <Text>Home</Text>
+          <Text> {"<"} Home</Text>
         </TouchableHighlight>
         <Text style={styles.carrierText}>
           {carriers[this.state.carrier]}
         </Text>
         <Text style={styles.trackingNumberText}>
-          Tracking No.:
+          Tracking No.:{" "}
           {this.state.trackingNumber}
         </Text>
-        <Text style={styles.detailsText}>
+        <Text style={styles.status}>
           {status}{"\n"}
-          {status_details}{"\n"}
+        </Text>
+        <Text style={styles.status_details}>
           {status_date_with_location}{"\n"}
-
+          {"\n"}
+          {status_details}{"\n"}
+        </Text>
+        <Text style={styles.addresses}>
           From: {fromAddress}{"\n"}
           To: {toAddress}{"\n"}
         </Text>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+          renderRow={(rowData) => <Text style={{marginTop: 5}}>{rowData}</Text>}
           renderHeader={() => <Text style={{fontWeight: '700', fontSize: 16}}>Tracking History</Text>}
+          enableEmptySections={true}
         />
 
 
@@ -118,25 +123,31 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     alignItems: 'flex-start',
+    marginLeft: 10,
+    marginRight: 10
   },
   carrierText: {
     fontSize: 25,
-    marginTop: 40,
-    marginBottom: 20,
-    color: 'black',
+    marginTop: 10,
+    color: 'blue',
     textAlign: 'left',
   },
   trackingNumberText: {
-    fontSize: 25,
-    marginTop: 20,
+    fontSize: 18,
     marginBottom: 20,
     color: 'black',
     textAlign: 'left',
   },
-  detailsText: {
+  status: {
     fontSize: 20,
-    marginTop: 10,
-    color: 'black',
+    marginTop: 5,
+    color: 'green'
+  },
+  status_details: {
+    fontSize: 15,
+  },
+  addresses: {
+    fontSize: 15,
   }
 });
 
