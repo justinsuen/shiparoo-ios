@@ -20,7 +20,6 @@ class ShowPackage extends Component {
 
   componentWillMount() {
     this.getPackageDetails();
-    console.log("getting package details")
   }
 
   _handleBackPress() {
@@ -29,7 +28,6 @@ class ShowPackage extends Component {
 
   getPackageDetails() {
     const url = `https://api.goshippo.com/v1/tracks/${this.state.carrier}/${this.state.trackingNumber}`;
-    console.log(url);
     return fetch(url, {
       method: 'GET',
       headers: {
@@ -43,8 +41,9 @@ class ShowPackage extends Component {
         for (let a = 0; a < data.tracking_history.length; a++) {
           let loc_str = this.getAddress(data.tracking_history[a] + ": ")
           visited_locations.push(
-            Date.parse(det.tracking_history[a].status_date) + ": "
-              + this.getAddress(det.tracking_history[a])
+            new Date(data.tracking_history[a].status_date).toString() + ": " +
+              this.getAddress(data.tracking_history[a].location) + " | " +
+              data.tracking_history[a].status
           );
           console.log(visited_locations);
         }
@@ -55,6 +54,9 @@ class ShowPackage extends Component {
 
   getAddress(location) {
     let address_str = "";
+    if (!location) {
+      return "";
+    }
     let keys = Object.keys(location);
     for (let index in keys) {
       address_str += location[keys[index]];
@@ -66,15 +68,15 @@ class ShowPackage extends Component {
 
   render() {
     let fromAddress = "", toAddress = "", status = "", status_details = "";
-    let status_date = "", curr_location = "";
+    let status_date_with_location = "", curr_location = "";
     if (this.state.details.tracking_status) {
       let det = this.state.details;
       fromAddress = this.getAddress(det.address_from);
       toAddress = this.getAddress(det.address_to);
       status = det.tracking_status.status;
       status_details = det.tracking_status.status_details;
-      status_date = Date.parse(det.tracking_status.status_date).toString();
-      curr_location = this.getAddress(det.tracking_status.location);
+      status_date_with_location = new Date(det.tracking_status.status_date).toString() + ": " +
+        this.getAddress(det.tracking_status.location);
     }
 
     return (
@@ -95,11 +97,15 @@ class ShowPackage extends Component {
         <Text style={styles.detailsText}>
           {status}{"\n"}
           {status_details}{"\n"}
-          {status_date}: {curr_location}{"\n"}
+          {status_date_with_location}{"\n"}
 
           From: {fromAddress}{"\n"}
           To: {toAddress}{"\n"}
         </Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
 
 
       </View>
