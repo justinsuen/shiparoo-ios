@@ -116,8 +116,7 @@ class Home extends Component {
           this.setState({ processing: false });
         }
       })
-      .catch((data) => {
-        console.log(data);
+      .catch(() => {
         Alert.alert('Invalid tracking number or carrier.');
         this.setState({ processing: false });
       });
@@ -134,7 +133,6 @@ class Home extends Component {
       }
     } else {
       this.setState({ processing: false });
-      // console.log("render show");
       this._navigateToShow();
     }
   }
@@ -165,7 +163,6 @@ class Home extends Component {
     .then((data) => {
       if (data.package.verified === true) {
         this.setState({ processing: false });
-        // Alert.alert('render show');
         this._navigateToShow();
       } else {
         this.setState({ processing: false });

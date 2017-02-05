@@ -45,7 +45,6 @@ class ShowPackage extends Component {
               this.getAddress(reversed[a].location) + "\n" +
               reversed[a].status
           );
-          console.log(visited_locations);
         }
         this.setState({dataSource: this.state.dataSource.cloneWithRows(visited_locations)});
 
