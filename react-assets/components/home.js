@@ -14,6 +14,7 @@ import ModalPicker from 'react-native-modal-picker';
 
 import AllPackages from './all_packages';
 import VerifyPIN from './verify_pin';
+import ShowPackage from './show_package';
 
 const carriers = [
   { key: 'ups', label: 'UPS'},
@@ -43,6 +44,8 @@ class Home extends Component {
     this.handleValidTracking = this.handleValidTracking.bind(this);
     this.validPhoneNumber = this.validPhoneNumber.bind(this);
     this.createPackage = this.createPackage.bind(this);
+
+    this._navigateToShow = this._navigateToShow.bind(this);
   }
 
   _navigate(){
@@ -58,12 +61,25 @@ class Home extends Component {
     });
   }
 
+  _navigateToShow() {
+    this.props.navigator.push({
+      name: 'Show Package',
+      passProps: {
+        carrier: this.state.carrier,
+        trackingNumber: this.state.trackingNumber
+      }
+    });
+  }
+
   renderScene(route, navigator) {
-    if(route.name === 'All Packages') {
+    if (route.name === 'All Packages') {
       return <AllPackages navigator={navigator} />;
     }
-    if(route.name === 'Verify PIN') {
+    if (route.name === 'Verify PIN') {
       return <VerifyPIN navigator={navigator} />;
+    }
+    if (route.name === 'Show Package') {
+      return <ShowPackage navigator={navigator} {...route.passProps}/>;
     }
   }
 
@@ -117,7 +133,7 @@ class Home extends Component {
       }
     } else {
       this.setState({ processing: false });
-      console.log("render show");
+      this._navigateToShow();
     }
   }
 
@@ -147,7 +163,7 @@ class Home extends Component {
     .then((data) => {
       if (data.package.verified === true) {
         this.setState({ processing: false });
-        Alert.alert('render show');
+        this._navigateToShow();
       } else {
         this.setState({ processing: false });
         this._navigateVerify(data.package);
