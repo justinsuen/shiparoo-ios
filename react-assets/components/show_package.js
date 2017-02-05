@@ -105,6 +105,7 @@ class ShowPackage extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <Text>{rowData}</Text>}
+          renderHeader={() => <Text style={{fontWeight: '700', fontSize: 16}}>Tracking History</Text>}
         />
 
 
