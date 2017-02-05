@@ -8,8 +8,8 @@ class ShowPackage extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
     this.state = {
-      carrier: 'usps',
-      trackingNumber: '9205590136271836203422',
+      carrier: this.props.carrier,
+      trackingNumber: this.props.trackingNumber,
       details: {},
       dataSource: ds.cloneWithRows([])
     };
@@ -23,7 +23,7 @@ class ShowPackage extends Component {
   }
 
   _handleBackPress() {
-      // this.props.navigator.pop();
+      this.props.navigator.pop();
   }
 
   getPackageDetails() {
@@ -61,7 +61,7 @@ class ShowPackage extends Component {
     for (let index in keys) {
       address_str += location[keys[index]];
       if (keys[index] === "city") address_str += ",";
-      if (keys[index] !== "country" && keys[index] !== "") address_str += " ";
+      if (keys[index] !== "country" && location[keys[index]] !== "") address_str += " ";
     }
     return address_str;
   }
@@ -112,8 +112,6 @@ class ShowPackage extends Component {
           renderHeader={() => <Text style={{fontWeight: '700', fontSize: 16}}>Tracking History</Text>}
           enableEmptySections={true}
         />
-
-
       </View>
     );
   }
