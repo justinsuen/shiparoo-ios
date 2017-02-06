@@ -37,7 +37,7 @@ class VerifyPIN extends Component {
       this.verifyPackage();
     } else {
       this.setState({ processing: false });
-      Alert.alert('SIKE. THATS THE WRONG NUMBA.');
+      Alert.alert('PIN does not match. Please try again.');
     }
   }
 
@@ -73,8 +73,7 @@ class VerifyPIN extends Component {
           carrier: this.state.package.carrier
         }
       })
-    }).then((response) => response.json())
-      .then((data) => {
+    }).then((data) => {
         this.setState({ processing: false });
         this._navigateToShow();
     });
