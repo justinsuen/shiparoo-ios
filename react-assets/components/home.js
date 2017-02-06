@@ -255,7 +255,7 @@ class Home extends Component {
                 style={{
                   width: 125,
                   height: 30,
-                  fontSize: 11,
+                  fontSize: 12,
                   color: 'white',
                   paddingLeft: 10
                 }}
@@ -281,7 +281,7 @@ class Home extends Component {
                   borderBottomWidth: 1,
                   borderColor: 'white',}}>
                 <Text style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: 'white'
                   }}>
                   TRACKING NUMBER
@@ -311,7 +311,7 @@ class Home extends Component {
                   borderColor: 'white',
                   marginBottom: 20 }}>
                 <Text style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: 'white'
                   }}>
                   PHONE NUMBER (OPTIONAL)
