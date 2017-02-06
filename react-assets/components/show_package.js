@@ -56,12 +56,12 @@ class ShowPackage extends Component {
   getAddress(location) {
     let address_str = "";
     if (!location) {
-      return "";
+      return "Address Unavailable";
     }
     let keys = Object.keys(location);
     for (let index in keys) {
       address_str += location[keys[index]];
-      if (keys[index] === "city") address_str += ",";
+      if (keys[index] === "city" && location[keys[index]] !== "") address_str += ",";
       if (keys[index] !== "country" && location[keys[index]] !== "") address_str += " ";
     }
     return address_str;
