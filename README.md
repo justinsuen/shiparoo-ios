@@ -7,7 +7,7 @@
 
 It's always tough waiting for a package. It's even tougher not knowing when it will arrive. With Shiparoo-iOS, this mobile app will allow users to check the status of their packages at all times. And by inputting a phone number along with their tracking number, users can easily receive realtime updates on the status of their packages from delivery to arrival. Never lose track of another package again!
 
-Shiparoo-iOS is the mobile version of Shiparoo.
+Shiparoo-iOS is the mobile version of [Shiparoo](https://github.com/DanielLChang/Shiparoo).
 
 Shiparoo and Shiparoo-iOS are personal projects by Calvin Yau, Daniel Chang, and Justin Suen.
 
