@@ -16,7 +16,9 @@ class VerifyPIN extends Component {
     this.state = {
       package: this.props.navigator.state.routeStack[1].package,
       pinToVerify: '',
-      processing: false
+      processing: false,
+      carrierToPass: '',
+      trackingNumberToPass: ''
     };
 
     this._handleBackPress = this._handleBackPress.bind(this);
@@ -35,8 +37,18 @@ class VerifyPIN extends Component {
       this.verifyPackage();
     } else {
       this.setState({ processing: false });
-      Alert.alert('SIKE. THATS THE WRONG NUMBA.');
+      Alert.alert('PIN does not match. Please try again.');
     }
+  }
+
+  _navigateToShow() {
+    this.props.navigator.push({
+      name: 'Show Package',
+      passProps: {
+        carrier: this.state.package.carrier,
+        trackingNumber: this.state.package.tracking_number
+      }
+    });
   }
 
   disableButton() {
@@ -62,8 +74,8 @@ class VerifyPIN extends Component {
         }
       })
     }).then((data) => {
-      this.setState({ processing: false });
-      Alert.alert('RENDER SHOW');
+        this.setState({ processing: false });
+        this._navigateToShow();
     });
   }
 

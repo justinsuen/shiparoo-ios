@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { View, Text, NavigatorIOS, TouchableHighlight, StyleSheet, ListView } from 'react-native';
+import { View, Text, NavigatorIOS, TouchableHighlight, StyleSheet, ListView, Dimensions } from 'react-native';
+
+const width = Dimensions.get('window').width;
 
 class ShowPackage extends Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class ShowPackage extends Component {
   }
 
   _handleBackPress() {
-      this.props.navigator.pop();
+      this.props.navigator.push({ name: 'Home' });
   }
 
   getPackageDetails() {
@@ -80,37 +82,70 @@ class ShowPackage extends Component {
 
     return (
       <View style={styles.view}>
-        <TouchableHighlight style={{
-            marginTop: 15
-          }}
-          onPress={this._handleBackPress}>
-          <Text> {"<"} Home</Text>
-        </TouchableHighlight>
-        <Text style={styles.carrierText}>
-          {carriers[this.state.carrier]}
-        </Text>
-        <Text style={styles.trackingNumberText}>
-          Tracking No.:{" "}
-          {this.state.trackingNumber}
-        </Text>
-        <Text style={styles.status}>
-          {status}{"\n"}
-        </Text>
-        <Text style={styles.status_details}>
-          {status_date_with_location}{"\n"}
-          {"\n"}
-          {status_details}{"\n"}
-        </Text>
-        <Text style={styles.addresses}>
-          From: {fromAddress}{"\n"}
-          To: {toAddress}{"\n"}
-        </Text>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text style={{marginTop: 5}}>{rowData}</Text>}
-          renderHeader={() => <Text style={{fontWeight: '700', fontSize: 16}}>Tracking History</Text>}
-          enableEmptySections={true}
-        />
+        <View style={styles.header}>
+          <View style={{ width: width * .9, paddingTop: 15}}>
+            <TouchableHighlight style={{
+                width: 50,
+                height: 20
+              }}
+              onPress={this._handleBackPress}>
+              <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}> {"<"} </Text>
+            </TouchableHighlight>
+          </View>
+          <View style={{ width: width * .8, paddingBottom: 15 }}>
+            <Text style={styles.carrierText}>
+              {carriers[this.state.carrier]}
+            </Text>
+            <Text style={styles.trackingNumberText}>
+              Tracking No.:{" "}
+              {this.state.trackingNumber}
+            </Text>
+          </View>
+        </View>
+
+        <View style={{ width: width * .8, height: 50, paddingTop: 10 }}>
+          <Text style={styles.status}>
+            {status}{"\n"}
+          </Text>
+        </View>
+
+        <View style={styles.header}>
+          <View style={{ width: width * .8, paddingTop: 15, paddingBottom: 15 }}>
+            <Text style={styles.status_details}>
+              {status_date_with_location}{"\n"}
+              {"\n"}
+              {status_details}{"\n"}
+            </Text>
+            <Text style={styles.addresses}>
+              From: {fromAddress}{"\n"}
+              To: {toAddress}{"\n"}
+            </Text>
+          </View>
+        </View>
+
+          <ListView
+            style={{ width: width * .8, paddingTop: 15 }}
+            dataSource={this.state.dataSource}
+            renderRow={(rowData) =>
+              <View style={{
+                  borderColor: '#6d6e70',
+                  borderBottomWidth: 1,
+                  paddingTop: 5,
+                  paddingBottom: 5}}>
+                  <Text style={{
+                      color: '#6d6e70'
+                    }}>{rowData}
+                  </Text>
+                </View>}
+            renderHeader={() => <Text style={{
+              fontWeight: '700',
+              fontSize: 16,
+              alignItems: 'flex-start',
+              paddingBottom: 10,
+              color: '#b98d49'
+            }}>Tracking History</Text>}
+            enableEmptySections={true}
+            />
       </View>
     );
   }
@@ -119,32 +154,38 @@ class ShowPackage extends Component {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    alignItems: 'flex-start',
-    marginLeft: 10,
-    marginRight: 10
+    alignItems: 'center',
+    width: width
+  },
+  header: {
+    alignItems: 'center',
+    width: width,
+    backgroundColor: '#454647'
   },
   carrierText: {
     fontSize: 25,
     marginTop: 10,
-    color: 'blue',
+    color: '#b98d49',
     textAlign: 'left',
   },
   trackingNumberText: {
-    fontSize: 18,
-    marginBottom: 20,
-    color: 'black',
+    fontSize: 15,
+    color: 'white',
     textAlign: 'left',
   },
   status: {
     fontSize: 20,
-    marginTop: 5,
-    color: 'green'
+    height: 50,
+    color: '#b98d49',
+    fontWeight: 'bold'
   },
   status_details: {
-    fontSize: 15,
+    fontSize: 13,
+    color: 'white'
   },
   addresses: {
-    fontSize: 15,
+    fontSize: 13,
+    color: 'white'
   }
 });
 
