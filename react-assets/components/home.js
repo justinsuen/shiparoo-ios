@@ -293,7 +293,7 @@ class Home extends Component {
                   }}
                   autoFocus={true}
                   tintColor={'white'}
-                  keyboardType={'numeric'}
+                  keyboardType={'default'}
                   onChangeText={(trackingNumber) => this.setState({trackingNumber})}/>
               </View>
 
