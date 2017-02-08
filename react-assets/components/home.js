@@ -26,6 +26,8 @@ const carriers = [
   { key: 'mondial_relay', label: 'Mondial Relay'},
 ];
 
+// console.disableYellowBox = true;
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -145,7 +147,8 @@ class Home extends Component {
   }
 
   createPackage() {
-    return fetch('http://localhost:3000/api/packages', {
+    // return fetch('http://localhost:3000/api/packages', {
+    return fetch('https://shiparoo.herokuapp.com/api/packages', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
