@@ -3,6 +3,10 @@
 <img src="https://github.com/justinsuen/shiparoo-ios/blob/master/docs/form.png" width="300">
 <img src="https://github.com/justinsuen/shiparoo-ios/blob/master/docs/show.png" width="300">
 
+<img src="./docs/track_num.gif" width="300">
+<img src="./docs/pin.gif" width="300">
+<img src="./docs/details.gif" width="300">
+
 ## Background
 
 It's always tough waiting for a package. It's even tougher not knowing when it will arrive. With Shiparoo-iOS, this mobile app will allow users to check the status of their packages at all times. And by inputting a phone number along with their tracking number, users can easily receive realtime updates on the status of their packages from delivery to arrival. Never lose track of another package again!
