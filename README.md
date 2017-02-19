@@ -1,11 +1,11 @@
 # Shiparoo
 
-<img src="https://github.com/justinsuen/shiparoo-ios/blob/master/docs/form.png" width="300">
-<img src="https://github.com/justinsuen/shiparoo-ios/blob/master/docs/show.png" width="300">
+<!-- <img src="https://github.com/justinsuen/shiparoo-ios/blob/master/docs/form.png" width="300">
+<img src="https://github.com/justinsuen/shiparoo-ios/blob/master/docs/show.png" width="300"> -->
 
-<img src="./docs/track_num.gif" width="300">
-<img src="./docs/pin.gif" width="300">
-<img src="./docs/details.gif" width="300">
+<img src="./docs/track_num.gif" width="300" height="537">
+<img src="./docs/pin.gif" width="300" height="537">
+<img src="./docs/details.gif" width="300" height="537">
 
 ## Background
 
