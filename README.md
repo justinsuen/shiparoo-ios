@@ -15,16 +15,16 @@ Shiparoo-iOS is the mobile version of [Shiparoo](https://github.com/DanielLChang
 
 Shiparoo and Shiparoo-iOS are personal projects by Calvin Yau, Daniel Chang, and Justin Suen.
 
-##Major Features
+## Major Features
 - [x] Users can check the status and history of their packages with a `carrier` name and `tracking number`.
 - [x] Users receive an SMS with a PIN upon entering their phone number for verification.
 - [x] Users receive SMS updates on their packages until tracked package is delivered.
 
-##Architecture and Technology
-###Backend
+## Architecture and Technology
+### Backend
 The backend for this project was built using Ruby on Rails and PostgreSQL.
 
-###Frontend
+### Frontend
 - React Native
   - Currently only implemented for iOS
 
@@ -37,7 +37,7 @@ The backend for this project was built using Ruby on Rails and PostgreSQL.
   - Sends realtime updates every time the status on their package is changed.
   - Updates stop once package has status of `DELIVERED`.
 
-##Future Implementations
+## Future Implementations
 - Implement users with Auth0, similar to our Shiparoo web application.
 - Allow users to have a history of tracked packages.
 - Incorporate Google maps API to allow users to see a visual representation of the route their package has been. Similar to our Shiparoo web application.
